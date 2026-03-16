@@ -1,11 +1,12 @@
-import './App.css'
-import { SignupPage } from './features/auth/pages/SignupPage';
+import "./App.css";
+import { SignupPage } from "./features/auth/pages/SignupPage";
+import { SigninPage } from "./features/auth/pages/SigninPage";
 function App() {
   return (
     <>
-      <SignupPage />
+      <SigninPage />
     </>
-  )
+  );
 }
 
-export default App
+export default App;

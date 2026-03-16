@@ -12,7 +12,7 @@ export const SignupPage = () => {
   } = useForm<SignupFormData>({
     resolver: zodResolver(signupSchema),
     mode: "onSubmit", // Better UX: validates when user leaves the field,
-    reValidateMode: "onSubmit", // Re-validate on change for immediate feedback after first submit
+    reValidateMode: "onBlur", // Re-validate on change for immediate feedback after first submit
   });
 
   const onSubmit = async (data: SignupFormData) => {
