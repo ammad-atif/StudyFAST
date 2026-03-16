@@ -1,0 +1,12 @@
+<Routes>
+<Route element={<AuthLayout />}>
+<Route path="login" element={<SigninForm />} />
+<Route path="register" element={<SignupForm />} />
+<Route path="verify-email" element={<VerifyEmailForm />} />
+<Route path="forgot-password" element={<ForgotPasswordForm />} />
+<Route path="reset-password/:token" element={<ResetPasswordForm />} />
+
+        {/* Redirect /auth to /auth/login */}
+<Route path="/" element={<Navigate to="login" replace />} />
+</Route>
+</Routes>

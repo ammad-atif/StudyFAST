@@ -1,12 +1,11 @@
 import "./App.css";
-import { SignupPage } from "./features/auth/pages/SignupPage";
-import { SigninPage } from "./features/auth/pages/SigninPage";
-import { VerifyEmailPage } from "./features/auth/pages/VerifyEmailPage";
+import { BrowserRouter } from "react-router-dom";
+import { AuthPage } from "./pages/AuthPage";
 function App() {
   return (
-    <>
-      <VerifyEmailPage />
-    </>
+    <BrowserRouter>
+      <AuthPage />
+    </BrowserRouter>
   );
 }
 

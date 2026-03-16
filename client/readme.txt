@@ -31,10 +31,13 @@ src/
 └── utils/             # Helper functions (formatDate, validation logic)
 
 
-return of register from react hook form
+#return of register from react hook form
 {
   name: string,      // The field name you registered
   ref: fn             // Ref callback to register the input with RHF
   onChange: fn,       // Event handler for input changes
   onBlur: fn,         // Event handler for input blur/focus loss
 }
+
+#commands
+npm run dev -- --host
