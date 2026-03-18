@@ -6,7 +6,7 @@ npm create vite@latest frontend -- --template react-ts
 npm install @reduxjs/toolkit react-redux react-router-dom axios lucide-react
 npm install react-hook-form @hookform/resolvers zod
 npm install tailwindcss @tailwindcss/vite   #works with vite7
-
+npx storybook init
 
 
 #folder structure
@@ -41,3 +41,4 @@ src/
 
 #commands
 npm run dev -- --host
+

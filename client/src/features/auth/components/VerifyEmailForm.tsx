@@ -1,6 +1,8 @@
 import React, { useState, useRef } from "react";
 import { ArrowLeft } from "lucide-react";
 import { Link } from "react-router-dom";
+import { Button } from "../../../components/Button";
+
 export const VerifyEmailForm = () => {
   const [otp, setOtp] = useState<string[]>(new Array(6).fill(""));
   const inputRefs = useRef<HTMLInputElement[]>([]);
@@ -74,12 +76,9 @@ export const VerifyEmailForm = () => {
           ))}
         </div>
 
-        <button
-          type="submit"
-          className="w-full bg-primary hover:bg-slate-800 text-white font-bold py-4 rounded-xl transition-all shadow-lg shadow-primary/10 active:scale-[0.98] cursor-pointer"
-        >
+        <Button type="submit" color="primary">
           Verify Account
-        </button>
+        </Button>
       </form>
 
       <div className="mt-10 flex flex-col items-center gap-5 text-sm">
@@ -94,13 +93,13 @@ export const VerifyEmailForm = () => {
       {/* Back to Login */}
       <div className="flex justify-center">
         <Link to="/login">
-          <button className="mt-8 text-slate-blue font-bold hover:text-primary transition-all flex items-center gap-2 text-sm group cursor-pointer">
+          <div className="mt-8 text-slate-blue font-bold hover:text-primary transition-all flex items-center gap-2 text-sm group cursor-pointer">
             <ArrowLeft
               size={18}
               className="group-hover:-translate-x-1 transition-transform"
             />
-            Back to Login
-          </button>
+            Back to Sign up
+          </div>
         </Link>
       </div>
     </>

@@ -6,11 +6,13 @@
   --font-display: "Inter", "sans-serif";
   /* Exact Color Palette from your provided UI */
   --color-primary: #0f172a; /* Deep Navy for buttons/headings */
+  --color-text: #334155; /* Slate for text */
   --color-background-light: #f8fafc; /* Very light cool gray for page bg */
   --color-card-bg: #ffffff; /* Pure white for the form card */
   --color-input-bg: #f8fafc; /* Matches page bg for that clean look */
   --color-slate-blue: #64748b; /* Muted text for labels/subtext */
   --color-border-subtle: #e2e8f0; /* Light borders for inputs */
+  --color-secondary: #f1f5f9; /* Darker slate for hover states */
 }
 
 @layer base {

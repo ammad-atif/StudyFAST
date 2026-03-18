@@ -4,7 +4,7 @@ import { zodResolver } from "@hookform/resolvers/zod";
 import { forgotSchema, type ForgotFormData } from "../schemas/forgotSchema";
 import { Input } from "../../../components/Input";
 import { Mail, ArrowLeft, Send } from "lucide-react";
-
+import { Button } from "../../../components/Button";
 export const ForgotPasswordForm = () => {
   const {
     register,
@@ -42,23 +42,20 @@ export const ForgotPasswordForm = () => {
           {...register("email")}
         />
 
-        <button
-          disabled={isSubmitting}
-          className="w-full bg-primary text-white font-bold py-4 rounded-xl hover:bg-[#1e293b] transition-all shadow-md active:scale-[0.98] flex items-center justify-center gap-2 cursor-pointer disabled:cursor-not-allowed disabled:opacity-70"
-        >
+        <Button disabled={isSubmitting} color="primary" type="submit">
           {isSubmitting ? "Sending..." : "Send Reset Link"}
           {!isSubmitting && <Send size={18} />}
-        </button>
+        </Button>
       </form>
 
       <Link to="/login">
-        <button className="mt-10 w-full flex items-center justify-center gap-2 text-sm font-bold text-slate-blue hover:text-primary transition-colors group cursor-pointer">
+        <div className="mt-10 w-full flex items-center justify-center gap-2 text-sm font-bold text-slate-blue hover:text-primary transition-colors group cursor-pointer">
           <ArrowLeft
             size={16}
             className="group-hover:-translate-x-1 transition-transform"
           />
           Back to Login
-        </button>
+        </div>
       </Link>
     </>
   );

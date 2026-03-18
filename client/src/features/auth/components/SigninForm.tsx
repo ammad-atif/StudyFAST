@@ -4,6 +4,8 @@ import { signinSchema, type SigninFormData } from "../schemas/signinSchema";
 import { Input } from "../../../components/Input";
 import { Mail, Lock, ArrowRight } from "lucide-react";
 import { Link } from "react-router-dom";
+import { Button } from "../../../components/Button";
+
 export const SigninForm = () => {
   const {
     register,
@@ -66,14 +68,10 @@ export const SigninForm = () => {
 
         <div className="pt-2 flex flex-col gap-4">
           {/* Primary Action Button */}
-          <button
-            disabled={isSubmitting}
-            className="w-full bg-primary text-white font-bold py-4 rounded-xl hover:bg-[#1e293b] transition-all shadow-md active:scale-[0.98] disabled:opacity-70 flex items-center justify-center gap-2 cursor-pointer disabled:cursor-not-allowed"
-            type="submit"
-          >
+          <Button disabled={isSubmitting} color="primary" type="submit">
             {isSubmitting ? "Logging in..." : "Login"}
             {!isSubmitting && <ArrowRight size={18} />}
-          </button>
+          </Button>
 
           <div className="flex items-center gap-4 py-2">
             <div className="h-px bg-slate-100 flex-1" />
@@ -85,12 +83,7 @@ export const SigninForm = () => {
 
           {/* Secondary Action Button - Exact background from your screenshot */}
           <Link to="/register">
-            <button
-              type="button"
-              className="w-full bg-[#f1f5f9] text-primary font-bold py-4 rounded-xl hover:bg-border-subtle transition-all border border-transparent active:scale-[0.98] cursor-pointer"
-            >
-              Don't have an account? Register
-            </button>
+            <Button color="secondary">Don't have an account? Register</Button>
           </Link>
         </div>
       </form>

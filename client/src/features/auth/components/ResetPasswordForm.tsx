@@ -3,7 +3,7 @@ import { zodResolver } from "@hookform/resolvers/zod";
 import { resetSchema, type ResetFormData } from "../schemas/resetSchema";
 import { Input } from "../../../components/Input";
 import { Lock, ShieldCheck, CheckCircle2 } from "lucide-react";
-
+import { Button } from "../../../components/Button";
 export const ResetPasswordForm = () => {
   const {
     register,
@@ -49,13 +49,10 @@ export const ResetPasswordForm = () => {
           {...register("confirmPassword")}
         />
 
-        <button
-          disabled={isSubmitting}
-          className="w-full bg-primary text-white font-bold py-4 rounded-xl hover:bg-[#1e293b] transition-all shadow-md active:scale-[0.98] flex items-center justify-center gap-2 cursor-pointer disabled:cursor-not-allowed disabled:opacity-70"
-        >
+        <Button disabled={isSubmitting} type="submit" color="primary">
           {isSubmitting ? "Updating..." : "Update Password"}
           {!isSubmitting && <CheckCircle2 size={18} />}
-        </button>
+        </Button>
       </form>
     </>
   );

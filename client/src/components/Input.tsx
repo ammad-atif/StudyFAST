@@ -2,13 +2,14 @@ import React, { useState } from "react";
 import { EyeIcon, EyeClosedIcon } from "lucide-react";
 
 interface InputProps extends React.InputHTMLAttributes<HTMLInputElement> {
-  label: string;
+  label?: string;
   icon?: React.ReactNode;
   error?: string;
+  placeholder_icon?: React.ReactNode;
 }
 
 export const Input = React.forwardRef<HTMLInputElement, InputProps>(
-  ({ label, icon, error, type, ...props }, ref) => {
+  ({ label, icon, error, type, placeholder_icon, ...props }, ref) => {
     const [showPassword, setShowPassword] = useState(false);
     const isPasswordField = type === "password";
     const inputType = isPasswordField && showPassword ? "text" : type;
@@ -16,10 +17,13 @@ export const Input = React.forwardRef<HTMLInputElement, InputProps>(
     return (
       <div className="flex flex-col gap-2 w-full group">
         {/* Label - Darker, Bold Typography */}
-        <label className="text-primary text-[13px] font-bold flex items-center gap-2">
-          {icon && <span className="opacity-90">{icon}</span>}
-          {label}
-        </label>
+
+        {label && (
+          <label className="text-primary text-[13px] font-bold flex items-center gap-2">
+            {icon && <span className="opacity-90">{icon}</span>}
+            {label}
+          </label>
+        )}
 
         <div className="relative">
           <input
@@ -37,11 +41,21 @@ export const Input = React.forwardRef<HTMLInputElement, InputProps>(
               /* ERROR STATE */
               ${error ? "border-red-500 bg-red-50/30" : ""}
               
+              /* PLACEHOLDER ICON PADDING */
+              ${placeholder_icon ? "pl-12" : ""}
+              
               /* PASSWORD TOGGLE PADDING */
               ${isPasswordField ? "pr-12" : ""}
             `}
             {...props}
           />
+
+          {/* Placeholder Icon */}
+          {placeholder_icon && (
+            <div className="absolute left-4 top-1/2 -translate-y-1/2 text-slate-400 pointer-events-none flex items-center">
+              {placeholder_icon}
+            </div>
+          )}
 
           {/* Password Toggle Icon */}
           {isPasswordField && (

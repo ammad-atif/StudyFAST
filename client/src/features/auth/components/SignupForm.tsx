@@ -4,7 +4,7 @@ import { signupSchema, type SignupFormData } from "../schemas/signupSchema";
 import { Input } from "../../../components/Input";
 import { User, Mail, Lock, ShieldCheck, Building2 } from "lucide-react";
 import { Link } from "react-router-dom";
-
+import { Button } from "../../../components/Button";
 export const SignupForm = () => {
   const {
     register,
@@ -81,13 +81,9 @@ export const SignupForm = () => {
         />
 
         <div className="pt-4 flex flex-col gap-4">
-          <button
-            type="submit"
-            disabled={isSubmitting}
-            className="w-full bg-primary text-white font-bold py-4 rounded-xl hover:bg-[#1e293b] transition-all shadow-md active:scale-[0.98] disabled:opacity-70 cursor-pointer disabled:cursor-not-allowed"
-          >
+          <Button type="submit" disabled={isSubmitting} color="primary">
             {isSubmitting ? "Creating Account..." : "Register Now"}
-          </button>
+          </Button>
 
           <div className="flex items-center gap-4 my-1">
             <div className="h-px bg-slate-100 flex-1"></div>
@@ -97,12 +93,9 @@ export const SignupForm = () => {
             <div className="h-px bg-slate-100 flex-1"></div>
           </div>
           <Link to="/login">
-            <button
-              type="button"
-              className="w-full bg-[#f1f5f9] text-primary font-bold py-4 rounded-xl hover:bg-border-subtle transition-all border border-transparent cursor-pointer active:scale-[0.98] "
-            >
+            <Button color="secondary" type="button">
               Already have an account? Login
-            </button>
+            </Button>
           </Link>
         </div>
       </form>
