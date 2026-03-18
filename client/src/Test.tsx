@@ -7,6 +7,7 @@ import { ContentToolbar } from "./features/home/components/ContentToolbar";
 import { HomePage } from "./pages/HomePage";
 import { HomeLayout } from "./layouts/HomeLayout";
 import { PostDetailsPage } from "./pages/PostDetailsPage";
+import { CreatePostPage } from "./pages/CreatePostPage";
 export function Test() {
   return (
     <>
@@ -25,7 +26,7 @@ export function Test() {
         tags={[{ name: "gopt", color: "bg-green-500" }]}
       />
       <Sidebar /> */}
-      <PostDetailsPage />
+      <CreatePostPage />
     </>
   );
 }

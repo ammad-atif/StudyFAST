@@ -1,7 +1,6 @@
 import {
   ArrowUp,
   ArrowDown,
-  ChevronRight,
   Bot,
   Verified,
   MessageSquare,
