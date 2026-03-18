@@ -8,6 +8,7 @@ import { HomePage } from "./pages/HomePage";
 import { HomeLayout } from "./layouts/HomeLayout";
 import { PostDetailsPage } from "./pages/PostDetailsPage";
 import { CreatePostPage } from "./pages/CreatePostPage";
+import { LibraryPage } from "./pages/LibraryPage";
 export function Test() {
   return (
     <>
@@ -26,7 +27,7 @@ export function Test() {
         tags={[{ name: "gopt", color: "bg-green-500" }]}
       />
       <Sidebar /> */}
-      <CreatePostPage />
+      <LibraryPage />
     </>
   );
 }
