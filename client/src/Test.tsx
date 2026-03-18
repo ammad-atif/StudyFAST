@@ -6,6 +6,7 @@ import { Sidebar } from "./features/home/components/Sidebar";
 import { ContentToolbar } from "./features/home/components/ContentToolbar";
 import { HomePage } from "./pages/HomePage";
 import { HomeLayout } from "./layouts/HomeLayout";
+import { PostDetailsPage } from "./pages/PostDetailsPage";
 export function Test() {
   return (
     <>
@@ -24,7 +25,7 @@ export function Test() {
         tags={[{ name: "gopt", color: "bg-green-500" }]}
       />
       <Sidebar /> */}
-      <HomePage />
+      <PostDetailsPage />
     </>
   );
 }
