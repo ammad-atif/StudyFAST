@@ -1,5 +1,5 @@
-import { Button } from "./components/Button";
-import { Input } from "./components/Input";
+import { Button } from "./components/auth/Button";
+import { Input } from "./components/auth/Input";
 import { Navbar } from "./components/Navbar";
 import { PostCard } from "./features/home/components/PostCard";
 import { Sidebar } from "./features/home/components/Sidebar";

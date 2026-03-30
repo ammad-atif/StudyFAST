@@ -1,7 +1,7 @@
 import React, { useState, useRef } from "react";
 import { ArrowLeft } from "lucide-react";
 import { Link } from "react-router-dom";
-import { Button } from "../../../components/Button";
+import { Button } from "./Button";
 
 export const VerifyEmailForm = () => {
   const [otp, setOtp] = useState<string[]>(new Array(6).fill(""));

@@ -1,9 +1,23 @@
+import { z } from "zod";
 import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
-import { resetSchema, type ResetFormData } from "../schemas/resetSchema";
-import { Input } from "../../../components/Input";
+import { Input } from "./Input";
 import { Lock, ShieldCheck, CheckCircle2 } from "lucide-react";
-import { Button } from "../../../components/Button";
+import { Card } from "./Card";
+import { Button } from "./Button";
+
+const resetSchema = z
+  .object({
+    password: z.string().min(8, "Password must be at least 8 characters"),
+    confirmPassword: z.string(),
+  })
+  .refine((data) => data.password === data.confirmPassword, {
+    message: "Passwords do not match",
+    path: ["confirmPassword"],
+  });
+
+type ResetFormData = z.infer<typeof resetSchema>;
+
 export const ResetPasswordForm = () => {
   const {
     register,
@@ -21,16 +35,13 @@ export const ResetPasswordForm = () => {
 
   return (
     <>
-      <div className="text-center mb-10">
-        <h1 className="text-[28px] font-extrabold text-primary mb-3 tracking-tight leading-tight">
-          Reset Password
-        </h1>
-        <p className="text-slate-blue text-[15px] font-medium opacity-90">
-          Almost there! Choose a strong new password for your account.
-        </p>
-      </div>
+      {/* Reset Password Card */}
+      <Card
+        title="Reset Your Password"
+        description="Enter your new password below to regain access to your account."
+      />
 
-      <form onSubmit={handleSubmit(onSubmit)} className="space-y-6">
+      <form onSubmit={handleSubmit(onSubmit)} className="space-y-8">
         <Input
           label="New Password"
           icon={<Lock className="w-4 h-4 text-slate-blue" />}
@@ -49,7 +60,8 @@ export const ResetPasswordForm = () => {
           {...register("confirmPassword")}
         />
 
-        <Button disabled={isSubmitting} type="submit" color="primary">
+        {/* Primary Action Button */}
+        <Button disabled={isSubmitting} type="submit" variant="primary">
           {isSubmitting ? "Updating..." : "Update Password"}
           {!isSubmitting && <CheckCircle2 size={18} />}
         </Button>

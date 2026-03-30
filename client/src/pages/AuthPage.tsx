@@ -1,25 +1,26 @@
-import { Routes, Route, Navigate } from "react-router-dom";
-import { AuthLayout } from "../layouts/AuthLayout";
-import { SigninForm } from "../features/auth/components/SigninForm";
-import { SignupForm } from "../features/auth/components/SignupForm";
-import { VerifyEmailForm } from "../features/auth/components/VerifyEmailForm";
-import { ForgotPasswordForm } from "../features/auth/components/ForgotPasswordForm";
-import { ResetPasswordForm } from "../features/auth/components/ResetPasswordForm";
+import { GraduationCap } from "lucide-react";
 
-export const AuthPage = () => {
+interface AuthPageProps {
+  children: React.ReactNode;
+}
+
+export const AuthPage = ({ children }: AuthPageProps) => {
   return (
-    <Routes>
-      {/* All routes inside this group will automatically use the AuthLayout */}
-      <Route element={<AuthLayout />}>
-        <Route path="login" element={<SigninForm />} />
-        <Route path="register" element={<SignupForm />} />
-        <Route path="verify-email" element={<VerifyEmailForm />} />
-        <Route path="forgot-password" element={<ForgotPasswordForm />} />
-        <Route path="reset-password/:token" element={<ResetPasswordForm />} />
+    <main className="min-h-screen flex flex-col items-center justify-center gap-8 p-8 bg-background-light">
+      {/* Logo */}
+      <div className="flex flex-col items-center gap-2">
+        <div className="bg-primary text-white p-2 rounded-xl shadow-2xl">
+          <GraduationCap size={32} />
+        </div>
+        <h1 className="text-2xl font-extrabold tracking-tight text-primary">
+          StudyFAST
+        </h1>
+      </div>
 
-        {/* Redirect /auth to /auth/login */}
-        <Route path="/" element={<Navigate to="login" replace />} />
-      </Route>
-    </Routes>
+      {/* Card */}
+      <div className="w-full max-w-xl bg-white rounded-2xl shadow-xl border border-slate-100 p-8">
+        {children}
+      </div>
+    </main>
   );
 };

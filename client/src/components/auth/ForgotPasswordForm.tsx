@@ -1,10 +1,18 @@
-import { Link } from "react-router-dom";
+import { z } from "zod";
 import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
-import { forgotSchema, type ForgotFormData } from "../schemas/forgotSchema";
-import { Input } from "../../../components/Input";
+import { Link } from "react-router-dom";
+import { Input } from "./Input";
+import { Button } from "./Button";
 import { Mail, ArrowLeft, Send } from "lucide-react";
-import { Button } from "../../../components/Button";
+import { Card } from "./Card";
+
+const forgotSchema = z.object({
+  email: z.string().email("Please enter a valid university email"),
+});
+
+type ForgotFormData = z.infer<typeof forgotSchema>;
+
 export const ForgotPasswordForm = () => {
   const {
     register,
@@ -22,15 +30,12 @@ export const ForgotPasswordForm = () => {
 
   return (
     <>
-      <div className="text-center mb-10">
-        <h1 className="text-[28px] font-extrabold text-primary mb-3 tracking-tight leading-tight">
-          Forgot Password?
-        </h1>
-        <p className="text-slate-blue text-[15px] font-medium opacity-90 leading-relaxed">
-          No worries! Enter your email and we'll send you instructions to reset
-          your password.
-        </p>
-      </div>
+      {/* {Card} */}
+
+      <Card
+        title="Forgot Password?"
+        description="Enter your email and we'll send you instructions to reset your password."
+      ></Card>
 
       <form onSubmit={handleSubmit(onSubmit)} className="space-y-8">
         <Input
@@ -42,17 +47,18 @@ export const ForgotPasswordForm = () => {
           {...register("email")}
         />
 
-        <Button disabled={isSubmitting} color="primary" type="submit">
+        <Button disabled={isSubmitting} variant="primary" type="submit">
           {isSubmitting ? "Sending..." : "Send Reset Link"}
           {!isSubmitting && <Send size={18} />}
         </Button>
       </form>
 
-      <Link to="/login">
-        <div className="mt-10 w-full flex items-center justify-center gap-2 text-sm font-bold text-slate-blue hover:text-primary transition-colors group cursor-pointer">
+      {/* Back to Login Link */}
+      <Link to="/sign-in">
+        <div className="mt-10 flex items-center justify-center gap-2 text-sm font-bold text-slate-blue hover:text-primary transition-colors group cursor-pointer">
           <ArrowLeft
             size={16}
-            className="group-hover:-translate-x-1 transition-transform"
+            className="group-hover:-translate-x-3 transition-transform"
           />
           Back to Login
         </div>

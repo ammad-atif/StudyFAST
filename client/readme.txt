@@ -43,6 +43,57 @@ src/
 npm run dev -- --host
 
 
+my-app/
+├── public/
+├── src/
+│   ├── components/              # All your components
+│   │   ├── auth/
+│   │   │   ├── Login.jsx
+│   │   │   ├── Register.jsx
+│   │   │   └── ProtectedRoute.jsx
+│   │   ├── products/
+│   │   │   ├── ProductList.jsx
+│   │   │   ├── ProductCard.jsx
+│   │   │   └── ProductDetails.jsx
+│   │   ├── cart/
+│   │   │   ├── Cart.jsx
+│   │   │   └── CartItem.jsx
+│   │   └── common/              # Shared components
+│   │       ├── Button.jsx
+│   │       ├── Header.jsx
+│   │       └── Footer.jsx
+│   │
+│   ├── redux/                   # All Redux logic in one place
+│   │   ├── store.js             # Store configuration
+│   │   ├── slices/              # All your slices
+│   │   │   ├── authSlice.js
+│   │   │   ├── productsSlice.js
+│   │   │   └── cartSlice.js
+│   │   └── hooks.js             # Custom hooks (optional)
+│   │
+│   ├── pages/                   # Page components
+│   │   ├── HomePage.jsx
+│   │   ├── ProductsPage.jsx
+│   │   └── CartPage.jsx
+│   │
+│   ├── services/                # API calls
+│   │   ├── api.js               # Axios setup
+│   │   ├── authService.js
+│   │   └── productsService.js
+│   │
+│   ├── utils/                   # Helper functions
+│   │   ├── constants.js
+│   │   └── helpers.js
+│   │
+│   ├── styles/
+│   │   └── App.css
+│   │
+│   ├── App.jsx
+│   └── main.jsx
+│
+└── package.json
+
+
 
 
 

@@ -1,13 +1,31 @@
 import "./App.css";
-import { BrowserRouter, Route, Routes } from "react-router-dom";
 import { AuthPage } from "./pages/AuthPage";
-import { Test } from "./Test";
+import { SigninForm } from "./components/auth/SigninForm";
+import { SignupForm } from "./components/auth/SignupForm";
+import { ResetPasswordForm } from "./components/auth/ResetPasswordForm";
+import { ForgotPasswordForm } from "./components/auth/ForgotPasswordForm";
+import { VerifyEmailForm } from "./components/auth/VerifyEmailForm";
+import { BrowserRouter, Route, Routes } from "react-router-dom";
+
+const authRoutes = [
+  { path: "/sign-in", element: <SigninForm /> },
+  { path: "/sign-up", element: <SignupForm /> },
+  { path: "/reset-pass", element: <ResetPasswordForm /> },
+  { path: "/forgot-pass", element: <ForgotPasswordForm /> },
+  { path: "/verify-email", element: <VerifyEmailForm /> },
+];
+
 function App() {
   return (
     <BrowserRouter>
-      <AuthPage />
       <Routes>
-        <Route path="/test" element={<Test />} />
+        {authRoutes.map((route) => (
+          <Route
+            key={route.path}
+            path={route.path}
+            element={<AuthPage>{route.element}</AuthPage>}
+          />
+        ))}
       </Routes>
     </BrowserRouter>
   );

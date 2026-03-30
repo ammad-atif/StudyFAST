@@ -1,10 +1,44 @@
+import { z } from "zod";
 import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
-import { signupSchema, type SignupFormData } from "../schemas/signupSchema";
-import { Input } from "../../../components/Input";
+import { Input } from "./Input";
 import { User, Mail, Lock, ShieldCheck, Building2 } from "lucide-react";
 import { Link } from "react-router-dom";
-import { Button } from "../../../components/Button";
+import { Card } from "./Card";
+import { Button } from "./Button";
+const signupSchema = z
+  .object({
+    fullName: z
+      .string()
+      .min(1, "Name is required")
+      .min(2, "Name must be at least 2 characters"),
+    universityEmail: z
+      .string()
+      .min(1, "University email is required")
+      .email("Invalid university email")
+      .endsWith(".edu", "Must be a .edu email"),
+    personalEmail: z
+      .string()
+      .min(1, "Personal email is required")
+      .email("Invalid email address"),
+    password: z
+      .string()
+      .min(1, "Password is required")
+      .min(8, "Password must be at least 8 characters"),
+    confirmPassword: z.string().min(1, "Please confirm your password"),
+  })
+  .refine(
+    (data) => {
+      return data.password === data.confirmPassword;
+    },
+    {
+      message: "Passwords don't match",
+      path: ["confirmPassword"],
+    },
+  );
+
+type SignupFormData = z.infer<typeof signupSchema>;
+
 export const SignupForm = () => {
   const {
     register,
@@ -24,17 +58,12 @@ export const SignupForm = () => {
   return (
     <>
       {/* Signup Card */}
+      <Card
+        title="Create Account"
+        description="Join our academic community today"
+      />
 
-      <div className="flex flex-col gap-2 mb-10 text-center">
-        <h1 className="text-[32px] font-extrabold tracking-tight text-primary leading-tight">
-          Create Account
-        </h1>
-        <p className="text-slate-blue text-[15px] font-medium opacity-90">
-          Join our academic community today
-        </p>
-      </div>
-
-      <form onSubmit={handleSubmit(onSubmit)} className="space-y-6">
+      <form onSubmit={handleSubmit(onSubmit)} className="space-y-5">
         <Input
           label="Full Name"
           icon={<User className="w-4 h-4 text-slate-blue" />}
@@ -80,24 +109,24 @@ export const SignupForm = () => {
           {...register("confirmPassword")}
         />
 
-        <div className="pt-4 flex flex-col gap-4">
-          <Button type="submit" disabled={isSubmitting} color="primary">
-            {isSubmitting ? "Creating Account..." : "Register Now"}
-          </Button>
+        {/* Primary Action Button */}
+        <Button disabled={isSubmitting} type="submit" variant="primary">
+          {isSubmitting ? "Creating Account..." : "Register Now"}
+        </Button>
 
-          <div className="flex items-center gap-4 my-1">
-            <div className="h-px bg-slate-100 flex-1"></div>
-            <span className="text-[10px] text-slate-400 font-extrabold uppercase tracking-[0.15em]">
-              or
-            </span>
-            <div className="h-px bg-slate-100 flex-1"></div>
-          </div>
-          <Link to="/login">
-            <Button color="secondary" type="button">
-              Already have an account? Login
-            </Button>
-          </Link>
+        {/* Divider */}
+        <div className="flex items-center gap-3">
+          <div className="h-px bg-slate-200 flex-1" />
+          <span className="text-xs text-slate-400 font-bold uppercase">or</span>
+          <div className="h-px bg-slate-200 flex-1" />
         </div>
+
+        {/* Secondary Action Button */}
+        <Link to="/login">
+          <Button variant="secondary" type="button">
+            Already have an account? Login
+          </Button>
+        </Link>
       </form>
     </>
   );
