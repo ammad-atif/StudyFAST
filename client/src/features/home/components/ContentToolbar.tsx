@@ -1,5 +1,5 @@
 import { Search } from "lucide-react";
-import { Input } from "../../../components/auth/Input";
+import { Input } from "../../../components/global/Input";
 export function ContentToolbar() {
   return (
     <>

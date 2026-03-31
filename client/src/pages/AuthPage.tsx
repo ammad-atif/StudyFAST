@@ -17,7 +17,7 @@ export const AuthPage = ({ children }: AuthPageProps) => {
         </h1>
       </div>
 
-      {/* Card */}
+      {/* Auth Form */}
       <div className="w-full max-w-xl bg-white rounded-2xl shadow-xl border border-slate-100 p-8">
         {children}
       </div>

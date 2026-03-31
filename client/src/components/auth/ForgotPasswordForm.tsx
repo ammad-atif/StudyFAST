@@ -2,10 +2,10 @@ import { z } from "zod";
 import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { Link } from "react-router-dom";
-import { Input } from "./Input";
+import { Input } from "../global/Input";
 import { Button } from "./Button";
 import { Mail, ArrowLeft, Send } from "lucide-react";
-import { Card } from "./Card";
+import { Card } from "../global/Card";
 
 const forgotSchema = z.object({
   email: z.string().email("Please enter a valid university email"),

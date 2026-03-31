@@ -1,10 +1,10 @@
 import { z } from "zod";
 import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
-import { Input } from "./Input";
+import { Input } from "../global/Input";
 import { User, Mail, Lock, ShieldCheck, Building2 } from "lucide-react";
 import { Link } from "react-router-dom";
-import { Card } from "./Card";
+import { Card } from "../global/Card";
 import { Button } from "./Button";
 const signupSchema = z
   .object({

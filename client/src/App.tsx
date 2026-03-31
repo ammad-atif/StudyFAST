@@ -1,11 +1,12 @@
 import "./App.css";
-import { AuthPage } from "./pages/AuthPage";
 import { SigninForm } from "./components/auth/SigninForm";
 import { SignupForm } from "./components/auth/SignupForm";
 import { ResetPasswordForm } from "./components/auth/ResetPasswordForm";
 import { ForgotPasswordForm } from "./components/auth/ForgotPasswordForm";
 import { VerifyEmailForm } from "./components/auth/VerifyEmailForm";
 import { BrowserRouter, Route, Routes } from "react-router-dom";
+import { AuthPage } from "./pages/AuthPage";
+import { CreatePostPage } from "./pages/CreatePostPage";
 
 const authRoutes = [
   { path: "/sign-in", element: <SigninForm /> },
@@ -26,6 +27,7 @@ function App() {
             element={<AuthPage>{route.element}</AuthPage>}
           />
         ))}
+        <Route path="/create-post" element={<CreatePostPage />} />
       </Routes>
     </BrowserRouter>
   );

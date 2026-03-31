@@ -1,9 +1,9 @@
 import { z } from "zod";
 import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
-import { Input } from "./Input";
+import { Input } from "../global/Input";
 import { Lock, ShieldCheck, CheckCircle2 } from "lucide-react";
-import { Card } from "./Card";
+import { Card } from "../global/Card";
 import { Button } from "./Button";
 
 const resetSchema = z
