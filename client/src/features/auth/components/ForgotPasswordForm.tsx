@@ -5,6 +5,7 @@ import { forgotSchema, type ForgotFormData } from "../schemas/forgotSchema";
 import { Input } from "../../../components/Input";
 import { Mail, ArrowLeft, Send } from "lucide-react";
 import { Button } from "../../../components/Button";
+
 export const ForgotPasswordForm = () => {
   const {
     register,
@@ -17,11 +18,15 @@ export const ForgotPasswordForm = () => {
   });
 
   const onSubmit = (data: ForgotFormData) => {
-    console.log("Recovery email sent to:", data.email);
+    const cleaned = {
+      email: data.email.trim(),
+    };
+    console.log("Recovery email sent to:", cleaned.email);
   };
 
   return (
     <>
+      {/* Header */}
       <div className="text-center mb-10">
         <h1 className="text-[28px] font-extrabold text-primary mb-3 tracking-tight leading-tight">
           Forgot Password?
@@ -32,6 +37,7 @@ export const ForgotPasswordForm = () => {
         </p>
       </div>
 
+      {/* Form */}
       <form onSubmit={handleSubmit(onSubmit)} className="space-y-8">
         <Input
           label="Email Address"
@@ -39,20 +45,29 @@ export const ForgotPasswordForm = () => {
           type="email"
           placeholder="name@university.edu"
           error={errors.email?.message}
+          autoComplete="email"
+          autoFocus
           {...register("email")}
         />
 
-        <Button disabled={isSubmitting} color="primary" type="submit">
+        <Button
+          disabled={isSubmitting}
+          color="primary"
+          type="submit"
+        >
           {isSubmitting ? "Sending..." : "Send Reset Link"}
-          {!isSubmitting && <Send size={18} />}
+          {!isSubmitting && (
+            <Send size={18} className="ml-1 transition-transform group-hover:translate-x-1" />
+          )}
         </Button>
       </form>
 
+      {/* Back to Login */}
       <Link to="/login">
-        <div className="mt-10 w-full flex items-center justify-center gap-2 text-sm font-bold text-slate-blue hover:text-primary transition-colors group cursor-pointer">
+        <div className="mt-10 w-full flex items-center justify-center gap-2 text-sm font-bold text-slate-blue hover:text-primary transition-all duration-200 group cursor-pointer">
           <ArrowLeft
             size={16}
-            className="group-hover:-translate-x-1 transition-transform"
+            className="transition-transform duration-200 group-hover:-translate-x-1"
           />
           Back to Login
         </div>

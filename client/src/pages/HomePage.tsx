@@ -1,8 +1,10 @@
 import { HomeLayout } from "../layouts/HomeLayout";
 import { PostCard } from "../features/home/components/PostCard";
+
 export const HomePage = () => {
   const mockPosts = [
     {
+      id: 1,
       title:
         "Efficiently Scaling Distributed Databases: A Deep Dive into Sharding",
       excerpt:
@@ -17,6 +19,7 @@ export const HomePage = () => {
       ],
     },
     {
+      id: 2,
       title:
         "Efficiently Scaling Distributed Databases: A Deep Dive into Sharding",
       excerpt:
@@ -31,6 +34,7 @@ export const HomePage = () => {
       ],
     },
     {
+      id: 3,
       title:
         "Efficiently Scaling Distributed Databases: A Deep Dive into Sharding",
       excerpt:
@@ -45,6 +49,7 @@ export const HomePage = () => {
       ],
     },
     {
+      id: 4,
       title:
         "Efficiently Scaling Distributed Databases: A Deep Dive into Sharding",
       excerpt:
@@ -59,6 +64,7 @@ export const HomePage = () => {
       ],
     },
     {
+      id: 5,
       title:
         "Efficiently Scaling Distributed Databases: A Deep Dive into Sharding",
       excerpt:
@@ -73,6 +79,7 @@ export const HomePage = () => {
       ],
     },
     {
+      id: 6,
       title:
         "Efficiently Scaling Distributed Databases: A Deep Dive into Sharding",
       excerpt:
@@ -87,6 +94,7 @@ export const HomePage = () => {
       ],
     },
     {
+      id: 7,
       title:
         "Efficiently Scaling Distributed Databases: A Deep Dive into Sharding",
       excerpt:
@@ -101,6 +109,7 @@ export const HomePage = () => {
       ],
     },
     {
+      id: 8,
       title:
         "Efficiently Scaling Distributed Databases: A Deep Dive into Sharding",
       excerpt:
@@ -114,14 +123,13 @@ export const HomePage = () => {
         { name: "Gemini Ultra", color: "bg-blue-500" },
       ],
     },
-    // Add more posts here...
   ];
 
   return (
     <HomeLayout>
-      <div className="space-y-4">
-        {mockPosts.map((post, idx) => (
-          <PostCard key={idx} {...post} />
+      <div className="max-w-3xl mx-auto space-y-5 px-2">
+        {mockPosts.map((post) => (
+          <PostCard key={post.id} {...post} />
         ))}
       </div>
     </HomeLayout>
