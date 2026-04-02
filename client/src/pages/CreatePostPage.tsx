@@ -82,7 +82,7 @@ export const CreatePostPage = () => {
             onTagsChange={(newTags) =>
               setValue("tags", newTags, { shouldValidate: true })
             }
-            onBlur={() => setValue("tags", tags, { shouldValidate: true })}
+            // onBlur={() => setValue("tags", tags, { shouldValidate: true })}
             error={errors.tags?.message}
             maxTags={10}
           />
