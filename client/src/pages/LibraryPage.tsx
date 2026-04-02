@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { LibraryItem } from "../components/LibraryItem";
+import { LibraryItem } from "../components/library/LibraryItem";
 import {
   History,
   Heart,
@@ -49,25 +49,25 @@ export const LibraryPage = () => {
       <div className="border border-slate-200 rounded-2xl bg-white  shadow-sm">
         <LibraryItem
           title="Quantum Mechanics: Wave-Particle Duality"
-          description="A deep dive into Schrödinger's equation and the double-slit experiment..."
+          description="Explore the fascinating world of quantum mechanics with our comprehensive flashcards on wave-particle duality, covering key concepts, experiments, and applications in modern physics."
           time="2h ago"
           status="Saved"
         />
         <LibraryItem
           title="Organic Chemistry Functional Groups"
-          description="50 essential flashcards covering alcohols, ethers, and ketones..."
+          description="Master the essential functional groups in organic chemistry with our detailed flashcards, featuring structures, properties, and reactions to help you excel in your studies."
           time="Yesterday"
           status="Commented"
         />
         <LibraryItem
           title="Python Data Structures Masterclass"
-          description="Complete guide to Lists, Dictionaries, Sets and Tuples..."
+          description="Complete guide to Lists, Dictionaries, Sets and Tuples in Python, with examples and best practices for efficient coding."
           time="1w ago"
           status="Liked"
         />
         <LibraryItem
           title="Python Data Structures Masterclass"
-          description="Complete guide to Lists, Dictionaries, Sets and Tuples..."
+          description="Complete guide to Lists, Dictionaries, Sets and Tuples in Python, with examples and best practices for efficient coding."
           time="1w ago"
           status="Created"
         />

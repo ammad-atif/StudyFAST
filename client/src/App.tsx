@@ -9,6 +9,7 @@ import { AuthPage } from "./pages/AuthPage";
 import { CreatePostPage } from "./pages/CreatePostPage";
 import { LibraryPage } from "./pages/LibraryPage";
 import { PostDetailsPage } from "./pages/PostDetailsPage";
+import { ProfilePage } from "./pages/ProfilePage";
 const authRoutes = [
   { path: "/sign-in", element: <SigninForm /> },
   { path: "/sign-up", element: <SignupForm /> },
@@ -31,6 +32,7 @@ function App() {
         <Route path="/create-post" element={<CreatePostPage />} />
         <Route path="/library" element={<LibraryPage />} />
         <Route path="/posts/:id" element={<PostDetailsPage />} />
+        <Route path="/profile" element={<ProfilePage />} />
       </Routes>
     </BrowserRouter>
   );

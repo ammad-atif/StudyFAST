@@ -41,7 +41,7 @@ export const LibraryItem = ({
       </div>
 
       {/* Time */}
-      <span className="hidden lg:block text-[10px] text-slate-400 font-black uppercase shrink-0">
+      <span className="hidden lg:block text-[10px] text-slate-400 font-black uppercase">
         {time}
       </span>
 
