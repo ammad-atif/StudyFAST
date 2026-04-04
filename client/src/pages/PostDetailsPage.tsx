@@ -7,7 +7,7 @@ import {
   Share2,
   Bookmark,
 } from "lucide-react";
-import { CommentItem } from "../features/home/components/CommentItem";
+import { CommentItem } from "../components/post-details/CommentItem";
 
 export const PostDetailsPage = () => {
   return (

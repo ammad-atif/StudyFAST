@@ -38,7 +38,7 @@ export const Sidebar = () => {
   ];
 
   return (
-    <div className="sticky top-24 space-y-8 overflow-y-auto h-[calc(100vh-6rem)] ">
+    <div className="space-y-8">
       {/* Subjects Section */}
       <div>
         <div className="flex items-center justify-between mb-3 px-2">
@@ -47,7 +47,7 @@ export const Sidebar = () => {
           </h3>
           <ChevronDown size={14} className="text-slate-400 cursor-pointer" />
         </div>
-        <div className="space-y-1 pr-2">
+        <div className="space-y-1">
           {subjects.map((sub) => (
             <Link
               key={sub.name}
@@ -72,7 +72,7 @@ export const Sidebar = () => {
         <h3 className="text-xs font-bold uppercase tracking-wider text-slate-400 mb-4 px-2">
           Popular Tags
         </h3>
-        <div className="flex flex-wrap gap-2 px-2   pr-2">
+        <div className="flex flex-wrap gap-2 px-2">
           {tags.map((tag) => (
             <span
               key={tag}

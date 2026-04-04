@@ -1,8 +1,8 @@
 import { Button } from "./components/auth/Button";
 import { Input } from "./components/global/Input";
-import { Navbar } from "./components/Navbar";
-import { PostCard } from "./features/home/components/PostCard";
-import { Sidebar } from "./features/home/components/Sidebar";
+import { Navbar } from "./components/global/Navbar";
+import { PostCard } from "./components/home/PostCard";
+import { Sidebar } from "./components/home/Sidebar";
 import { ContentToolbar } from "./features/home/components/ContentToolbar";
 import { HomePage } from "./pages/HomePage";
 import { HomeLayout } from "./layouts/HomeLayout";

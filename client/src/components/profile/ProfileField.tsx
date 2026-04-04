@@ -9,7 +9,7 @@ interface ProfileFieldProps {
 
 export const ProfileField = ({ label, value, icon }: ProfileFieldProps) => {
   return (
-    <div className="w-full group">
+    <div className="w-full">
       {/* Label */}
       <label className="text-primary text-[13px] font-bold flex items-center gap-2 mb-2">
         {icon && <span className="opacity-90">{icon}</span>}
@@ -17,7 +17,7 @@ export const ProfileField = ({ label, value, icon }: ProfileFieldProps) => {
       </label>
 
       {/* Field Container */}
-      <div className="w-full p-4 rounded-xl text-sm border border-slate-300 bg-slate-50/50 text-primary flex items-center justify-between group-hover:border-primary/50 group-hover:bg-white cursor-pointer transition-all">
+      <div className="w-full p-4 rounded-xl text-sm border border-slate-300 bg-slate-50/50 text-primary flex items-center justify-between hover:border-primary/50 hover:bg-white cursor-pointer transition-all">
         {/* Value Text */}
         <span className="font-medium tracking-tight">{value}</span>
 
