@@ -30,11 +30,11 @@ function App() {
             element={<AuthPage>{route.element}</AuthPage>}
           />
         ))}
+        <Route path="/" element={<HomePage />} />
+        <Route path="/posts/:id" element={<PostDetailsPage />} />
         <Route path="/create-post" element={<CreatePostPage />} />
         <Route path="/library" element={<LibraryPage />} />
-        <Route path="/posts/:id" element={<PostDetailsPage />} />
         <Route path="/profile" element={<ProfilePage />} />
-        <Route path="/" element={<HomePage />} />
       </Routes>
     </BrowserRouter>
   );
