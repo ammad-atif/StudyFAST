@@ -122,11 +122,11 @@ export const HomePage = () => {
   return (
     <div className="min-h-screen bg-background-light dark:bg-background-dark">
       {/* <Navbar /> */}
-      <main className="w-screen max-w-5xl mx-auto flex gap-x-8   mt-10">
+      <main className="w-screen lg:max-w-5xl mx-auto flex gap-x-8 mt-10 px-4">
         {/* Main Content Area with Sidebar */}
 
         {/* Sidebar */}
-        <aside className="h-[calc(100vh-6rem)] w-1/3 hidden lg:block sticky top-0 overflow-auto">
+        <aside className="h-[calc(100vh-6rem)] w-1/3 hidden md:block sticky top-0 overflow-auto">
           <Sidebar />
         </aside>
 
