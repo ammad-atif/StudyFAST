@@ -11,6 +11,7 @@ import { LibraryPage } from "./pages/LibraryPage";
 import { PostDetailsPage } from "./pages/PostDetailsPage";
 import { ProfilePage } from "./pages/ProfilePage";
 import { HomePage } from "./pages/HomePage";
+import { ErrorPage } from "./pages/ErrorPage";
 const authRoutes = [
   { path: "/sign-in", element: <SigninForm /> },
   { path: "/sign-up", element: <SignupForm /> },
@@ -35,6 +36,7 @@ function App() {
         <Route path="/create-post" element={<CreatePostPage />} />
         <Route path="/library" element={<LibraryPage />} />
         <Route path="/profile" element={<ProfilePage />} />
+        <Route path="*" element={<ErrorPage />} />
       </Routes>
     </BrowserRouter>
   );
