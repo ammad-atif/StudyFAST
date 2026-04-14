@@ -2,7 +2,7 @@
 import { Sidebar } from "../components/home/Sidebar";
 import { ContentToolbar } from "../components/home/ContentToolbar";
 import { PostCard } from "../components/home/PostCard";
-
+import { Navbar } from "../components/global/Navbar";
 export const HomePage = () => {
   const mockPosts = [
     {
@@ -107,7 +107,7 @@ export const HomePage = () => {
       title:
         "Efficiently Scaling Distributed Databases: A Deep Dive into Sharding",
       excerpt:
-        "lorem1111111111111111111111111111111111111111111111111111111...",
+        "lorem1111111111111111111111111111111111111111111111111111111aacvhgavcgvacghavgacvghavcghacvghacvahgvc...",
       subject: "Computer Science",
       time: "2 hours ago",
       votes: "1.2k",
@@ -122,7 +122,11 @@ export const HomePage = () => {
   return (
     <div className="min-h-screen bg-background-light dark:bg-background-dark">
       {/* <Navbar /> */}
-      <main className="w-screen lg:max-w-5xl mx-auto flex gap-x-8 mt-10 px-4">
+      <div className="">
+        <Navbar />
+      </div>
+
+      <main className="w-full max-w-5xl mx-auto flex gap-x-8 mt-10 px-4">
         {/* Main Content Area with Sidebar */}
 
         {/* Sidebar */}

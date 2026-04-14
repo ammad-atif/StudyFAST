@@ -24,7 +24,7 @@ export const PostCard = ({
   comments,
 }: PostCardProps) => {
   return (
-    <article className="bg-white border border-slate-200 rounded-xl overflow-hidden hover:border-slate-300 transition-colors flex ">
+    <article className="bg-white border border-slate-200 rounded-xl overflow-hidden hover:border-slate-300 transition-colors flex">
       {/* Voting Sidebar */}
       <div className="w-12 bg-slate-50 flex flex-col items-center py-4 gap-2">
         <button className="text-slate-400 hover:text-primary transition-colors cursor-pointer">
@@ -51,11 +51,11 @@ export const PostCard = ({
         </div>
 
         {/*Title and Excerpt */}
-        <div>
+        <div className="break-all">
           <h3 className="text-xl font-bold mb-2 leading-tight hover:text-slate-700 transition-colors cursor-pointer line-clamp-2">
             {title}
           </h3>
-          <p className="text-slate-600 text-sm mb-4 line-clamp-3">{excerpt}</p>
+          <p className="text-slate-600 text-sm mb-4 line-clamp-3 ">{excerpt}</p>
         </div>
 
         {/* Footer Actions (comment and share) */}

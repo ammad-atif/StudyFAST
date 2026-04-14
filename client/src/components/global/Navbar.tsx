@@ -1,69 +1,171 @@
 import { Link, useLocation } from "react-router-dom";
-import { BookOpen, Share2 } from "lucide-react";
+import { GraduationCap, Share2, Menu, X } from "lucide-react";
+import { useEffect, useState } from "react";
 
 export const Navbar = () => {
   const location = useLocation();
+  const [isOpen, setIsOpen] = useState(false);
+  const onClose = () => {
+    setIsOpen(false);
+  };
+  const onOpen = () => {
+    setIsOpen(true);
+  };
+
+  // Lock body scroll when mobile drawer is open
+  useEffect(() => {
+    if (isOpen) {
+      document.body.style.overflow = "hidden";
+    } else {
+      document.body.style.overflow = "";
+    }
+  }, [isOpen]);
 
   const navLinks = [
-    { name: "Home", path: "/dashboard" },
-    { name: "Bookmarks", path: "/dashboard/bookmarks" },
-    { name: "Analytics", path: "/dashboard/analytics" },
+    { name: "Home", path: "/" },
+    { name: "Library", path: "/library" },
+    { name: "Signup", path: "/sign-up" },
+    { name: "Signin", path: "/sign-in" },
+    { name: "Reset Password", path: "/reset-pass" },
+    { name: "Forgot Password", path: "/forgot-pass" },
+    { name: "Verify Email", path: "/verify-email" },
+    { name: "Posts", path: "/posts/1" },
   ];
 
   return (
-    <nav className="sticky top-0 z-50 w-full border-b border-slate-200 bg-white/80 backdrop-blur-md ">
-      <div className="max-w-360 mx-auto px-4 h-16 flex items-center justify-between">
-        {/* Logo Section */}
-        <Link
-          to="/dashboard"
-          className="flex items-center gap-2 shrink-0 group"
-        >
-          <div className="w-8 h-8 bg-primary rounded-lg flex items-center justify-center text-white transition-transform group-hover:scale-105">
-            <BookOpen size={18} />
-          </div>
-          <h2 className="text-xl font-bold tracking-tight text-primary">
-            StudyFAST
-          </h2>
-        </Link>
-
-        <div className="flex items-center gap-8">
-          {/* Main Navigation Links */}
-          <div className="hidden lg:flex items-center gap-8 text-sm font-medium">
-            {navLinks.map((link) => {
-              const isActive = location.pathname === link.path;
-              return (
-                <Link
-                  key={link.name}
-                  to={link.path}
-                  className={`py-5 transition-all relative ${
-                    isActive
-                      ? "text-primary border-b-2 border-primary"
-                      : "text-slate-500 hover:text-primary"
-                  }`}
-                >
-                  {link.name}
-                </Link>
-              );
-            })}
+    <>
+      <nav className="w-full sticky top-0 z-50 border-b border-slate-200 bg-white/80">
+        <div className="w-full max-w-7xl mx-auto px-4 h-16 flex items-center justify-between">
+          {/* Logo */}
+          <div className="flex items-center gap-2 ">
+            <div className="p-3 bg-primary rounded-lg flex items-center justify-center text-white">
+              <GraduationCap size={20} />
+            </div>
+            <h2 className="text-xl font-bold tracking-tight text-primary">
+              StudyFAST
+            </h2>
           </div>
 
-          {/* Action Buttons & Profile */}
-          <div className="flex items-center gap-4">
-            <button className="flex items-center gap-2 bg-primary text-white px-4 py-2 rounded-lg text-sm font-semibold hover:bg-slate-800 transition-all active:scale-95 cursor-pointer">
-              <Share2 size={16} />
-              <span>Share AI Chat</span>
-            </button>
+          {/* Navigation Links and Actions */}
+          <div className="hidden lg:flex items-center gap-8">
+            {/* Navigation Links */}
+            <div className="flex items-center gap-8 text-sm font-medium">
+              {navLinks.map((link) => {
+                const isActive = location.pathname === link.path;
+                return (
+                  <Link
+                    key={link.name}
+                    to={link.path}
+                    className={`py-5 transition-all ${
+                      isActive
+                        ? "text-primary border-b-2 border-primary"
+                        : "text-slate-500 hover:text-primary"
+                    }`}
+                  >
+                    {link.name}
+                  </Link>
+                );
+              })}
+            </div>
 
-            <div className="w-10 h-10 rounded-full bg-slate-200 overflow-hidden border border-slate-200 cursor-pointer hover:ring-2 hover:ring-primary/10 transition-all">
+            {/* Actions */}
+            <div className="flex items-center gap-4">
+              <button className="flex items-center gap-2 bg-primary text-white px-4 py-2 rounded-lg text-sm font-semibold hover:bg-slate-800 transition-all active:scale-95 cursor-pointer">
+                <Share2 size={16} />
+                Share AI Chat
+              </button>
+
+              <Link
+                to="/profile"
+                className="w-10 h-10 rounded-full bg-slate-200 overflow-hidden border border-slate-200 hover:ring-2 hover:ring-primary/10 transition-all"
+              >
+                <img
+                  alt="User Profile"
+                  className="w-full h-full object-cover"
+                  src="https://api.dicebear.com/7.x/avataaars/svg?seed=Felix"
+                />
+              </Link>
+            </div>
+          </div>
+
+          {/* Mobile menu button */}
+          <button className="lg:hidden" onClick={onOpen}>
+            <Menu />
+          </button>
+        </div>
+      </nav>
+
+      {/* Mobile Drawer */}
+
+      {/* Drawer Panel */}
+      <aside
+        className={`fixed inset-0 bg-white z-50 shadow-2xl flex flex-col transition-transform duration-300 scroll-none ${
+          isOpen ? "translate-x-0" : "-translate-x-full"
+        }`}
+      >
+        {/* Header */}
+        <div className="flex items-center justify-between px-4 py-3 border-b">
+          <div className="flex items-center gap-2">
+            <div className="p-2 bg-primary rounded-lg text-white">
+              <GraduationCap size={18} />
+            </div>
+            <span className="text-lg font-bold text-primary">StudyFAST</span>
+          </div>
+          <button
+            onClick={onClose}
+            className="p-2 rounded-lg text-slate-500 hover:bg-slate-100 hover:text-primary transition-colors"
+            aria-label="Close navigation menu"
+          >
+            <X size={18} />
+          </button>
+        </div>
+
+        {/* Navigation Links */}
+        <nav className="flex-1 overflow-y-auto px-4 py-3 space-y-1">
+          {navLinks.map((link) => {
+            const isActive = location.pathname === link.path;
+            return (
+              <Link
+                key={link.name}
+                to={link.path}
+                onClick={onClose}
+                className={`block rounded-lg px-3 py-2 text-sm font-medium transition-colors ${
+                  isActive
+                    ? "bg-primary text-white"
+                    : "text-slate-600 hover:bg-slate-50 hover:text-primary"
+                }`}
+              >
+                {link.name}
+              </Link>
+            );
+          })}
+        </nav>
+
+        {/* Footer */}
+        <div className="px-4 py-3 border-t space-y-3 flex flex-col items-center">
+          <button className="w-full flex items-center justify-center gap-2 bg-primary text-white px-4 py-2.5 rounded-lg text-sm font-semibold hover:bg-slate-800 transition-all active:scale-95">
+            <Share2 size={16} />
+            Share AI Chat
+          </button>
+
+          <Link
+            to="/profile"
+            onClick={onClose}
+            className="flex items-center gap-3 p-2 rounded-lg hover:bg-slate-50 transition-colors"
+          >
+            <div className="w-9 h-9 rounded-full bg-slate-200 overflow-hidden border border-slate-200">
               <img
                 alt="User Profile"
                 className="w-full h-full object-cover"
                 src="https://api.dicebear.com/7.x/avataaars/svg?seed=Felix"
               />
             </div>
-          </div>
+            <span className="text-sm font-medium text-slate-700">
+              View profile
+            </span>
+          </Link>
         </div>
-      </div>
-    </nav>
+      </aside>
+    </>
   );
 };
